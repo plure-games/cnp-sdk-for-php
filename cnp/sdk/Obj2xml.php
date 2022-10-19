@@ -309,16 +309,18 @@ class Obj2xml
 
     public static function getConfig($data, $type=NULL)
     {
-        $config_array = null;
+//        $config_array = null;
+//
+//        $ini_file = realpath(dirname(__FILE__)) . '/cnp_SDK_config.ini';
+//        if (file_exists($ini_file)) {
+//            @$config_array =parse_ini_file('cnp_SDK_config.ini');
+//        }
+//
+//        if (empty($config_array)) {
+//            $config_array = array();
+//        }
 
-        $ini_file = realpath(dirname(__FILE__)) . '/cnp_SDK_config.ini';
-        if (file_exists($ini_file)) {
-            @$config_array =parse_ini_file('cnp_SDK_config.ini');
-        }
-
-        if (empty($config_array)) {
-            $config_array = array();
-        }
+        $config_array = config('payments.worldpay');
 
         $names = explode(',', CNP_CONFIG_LIST);
         foreach ($names as $name) {
