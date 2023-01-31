@@ -329,7 +329,7 @@ class Obj2xml
 
             } else {
                 if ($name == 'merchantId') {
-                    $config['merchantId'] = $config_array['currency_merchant_map']['DEFAULT'];
+                    $config['merchantId'] = $config_array['currency_merchant_map'][\Modules\Payment\Services\WorldPay\MerchantId::getKey()];
                 } elseif ($name == 'version') {
                     $config['version'] = isset($config_array['version'])? $config_array['version']:CURRENT_XML_VERSION;
                 } elseif ($name == 'timeout') {
